@@ -1,0 +1,2 @@
+# 创建学生选课数据库：SCT
+CREATE DATABASE SCT;
