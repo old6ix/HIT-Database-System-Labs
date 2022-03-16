@@ -32,7 +32,7 @@ WHERE c_id IN (
 ;
 
 # 将学生的成绩按课号升序，成绩降序排列
-SELECT score
+SELECT *
 FROM SC
 ORDER BY c_id, score DESC
 ;
