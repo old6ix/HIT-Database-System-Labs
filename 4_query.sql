@@ -24,7 +24,7 @@ WHERE s_name LIKE '王%'
 # 查询数据库课程的最高成绩
 SELECT MAX(score)
 FROM SC
-WHERE c_id IN (
+WHERE c_id = (
     SELECT c_id
     FROM course
     WHERE c_name = '数据库'
