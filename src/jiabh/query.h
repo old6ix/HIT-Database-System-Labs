@@ -3,10 +3,12 @@
 
 #include <QString>
 #include "jiabh/sql.h"
-#include "jiabh/table.h"
-#include "jiabh/filter.h"
 
 namespace Jiabh {
+
+    class Table;
+    class Filter;
+
     /**
     * @brief SQL查询语句
     */
@@ -14,12 +16,13 @@ namespace Jiabh {
     {
     public:
         /**
-         * @brief 生成一个查询类
          * @param table Jiabh::Table类
          */
         Query(const Table &table);
 
-        QString getRawStr() override;
+        Query(const Query &obj);
+
+        QString getRawStr() const override;
 
         /**
          * @brief 添加过滤条件
@@ -30,6 +33,9 @@ namespace Jiabh {
 
         // TODO 完成查询函数
         // QSqlQuery all(QSqlDatabase db);
+    private:
+        QString m_sqlStr; // 生成的SQL语句
+        bool m_filtered; // 是否添加过WHERE条件
     };
 }
 

@@ -2,9 +2,11 @@
 #define TABLE_H
 
 #include <QString>
-#include "jiabh/query.h"
 
 namespace Jiabh {
+
+    class Query;
+
     /**
      * @brief 数据库中的一张表
      */
@@ -22,8 +24,8 @@ namespace Jiabh {
         QString getName() const;
 
         /**
-         * @brief 选出表中的所有字段
-         * @return 生成的查询类
+         * @brief 查询语句
+         * @return 生成的查询对象
          */
         Query query() const;
 

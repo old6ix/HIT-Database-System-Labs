@@ -18,7 +18,6 @@ DEFINES += QT_DEPRECATED_WARNINGS
 INCLUDEPATH += src
 
 SOURCES += \
-    src/jiabh/column.cpp \
     src/jiabh/filter.cpp \
     src/jiabh/query.cpp \
     src/jiabh/table.cpp \
@@ -26,7 +25,7 @@ SOURCES += \
     src/mainwindow.cpp
 
 HEADERS += \
-    src/jiabh/column.h \
+    src/jiabh/column.hpp \
     src/jiabh/filter.h \
     src/jiabh/query.h \
     src/jiabh/sql.h \

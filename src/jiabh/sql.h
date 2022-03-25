@@ -14,7 +14,7 @@ namespace Jiabh {
          * @brief 获取原始SQL查询语句
          * @return 生成的查询语句
          */
-        virtual QString getRawStr() = 0;
+        virtual QString getRawStr() const = 0;
     };
 }
 
