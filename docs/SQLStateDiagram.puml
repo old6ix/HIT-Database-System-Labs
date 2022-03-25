@@ -1,0 +1,16 @@
+@startuml SQL State Diagram
+
+title 一条SQL查询语句的状态转移图
+
+hide empty description
+
+[*] --> Table : Table()
+Table --> Query : query()
+Query --> Query : filterBy()
+Query --> QString : getRawStr()
+Query --> QSqlQuery : all()
+
+QString --> [*] : delete
+QSqlQuery --> [*] : delete
+
+@enduml

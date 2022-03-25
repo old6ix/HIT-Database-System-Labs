@@ -1,0 +1,46 @@
+@startuml Class Diagram
+
+title 数据库相关类的类图
+
+interface SQL {
+    +getRawStr(): QString
+}
+
+class Table {
+    -m_name: QString
+    +getName(): QString
+    +query(): Query
+}
+
+class Query {
+    +filterBy(Filter f): Query&
+}
+
+class Filter {
+    +operator&&(): Filter
+    +operator||(): Filter
+    +operator!(): Filter
+}
+
+SQL <|-- Query
+SQL <|-- Filter
+Table ..> Query : <<instantiate>>
+
+
+class Column {
+    -type: ColumnType
+    +getName(): QString
+    +like(): Filter
+    +operator...(): Filter
+}
+
+enum ColumnType {
+    ENUM_INT
+    ENUM_STR
+}
+
+Column --> ColumnType
+Column ..> Filter : <<instantiate>>
+Query .> Filter
+
+@enduml

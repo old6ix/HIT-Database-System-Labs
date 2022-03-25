@@ -1,0 +1,12 @@
+@startuml Filter State Diagram
+
+title Column类的状态变化
+hide empty description
+
+[*] -> Column : Column()
+Column --> Filter : >, <, ==, ...
+Column --> Filter : like()
+Filter --> Filter : &&, ||, !
+[*] <- Filter : delete
+
+@enduml
