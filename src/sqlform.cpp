@@ -1,6 +1,5 @@
 #include "sqlform.h"
 
-#include <QDebug>
 #include <QGridLayout>
 #include <QPushButton>
 #include "ui_widget/sqlfield.h"
@@ -55,25 +54,30 @@ void SqlForm::clickBtnSlot()
 {
     Jiabh::Query q = Jiabh::Table("student").query();
 
-    if (m_fSno->isChecked())
-        q.filterBy(Jiabh::StrColumn("Sid") == m_fSno->getInput());
-    if (m_fName->isChecked())
-        q.filterBy(Jiabh::StrColumn("Sname") == m_fName->getInput());
+#define CHECK_AND_QUERY(valName, colName) \
+    if (valName->isChecked()) { \
+        QString str = valName->getInput(); \
+        if (str.indexOf(QRegExp("[^\\\\]%|[^\\\\]_|^%|^_")) != -1) \
+            q.filterBy(Jiabh::StrColumn(#colName).like(str)); \
+        else \
+            q.filterBy(Jiabh::StrColumn(#colName) == str); \
+    }
+
+    CHECK_AND_QUERY(m_fSno, Sid)
+    CHECK_AND_QUERY(m_fName, Sname)
+
     if (m_fAge->isChecked()) {
         auto ageCol = Jiabh::IntColumn("Sage");
         q.filterBy(ageCol >= m_fAge->getMinInput())
                 .filterBy(ageCol <= m_fAge->getMaxInput());
     }
-    if (m_fSex->isChecked())
-        q.filterBy(Jiabh::StrColumn("Ssex") == m_fSex->getInput());
-    if (m_fClass->isChecked())
-        q.filterBy(Jiabh::StrColumn("Sclass") == m_fClass->getInput());
-    if (m_fDept->isChecked())
-        q.filterBy(Jiabh::StrColumn("Sdept") == m_fDept->getInput());
-    if (m_fAddr->isChecked())
-            q.filterBy(Jiabh::StrColumn("Saddr") == m_fAddr->getInput());
+
+    CHECK_AND_QUERY(m_fSex, Ssex)
+    CHECK_AND_QUERY(m_fClass, Sclass)
+    CHECK_AND_QUERY(m_fDept, Sdept)
+    CHECK_AND_QUERY(m_fAddr, Saddr)
+
 
     QString sql = q.getRawStr();
-    qDebug() << sql << endl;
     emit sqlConfirmed(sql);
 }

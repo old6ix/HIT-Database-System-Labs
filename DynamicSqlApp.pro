@@ -1,4 +1,4 @@
-QT       += core gui
+QT       += core gui sql
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -24,6 +24,7 @@ SOURCES += \
     src/main.cpp \
     src/mainwindow.cpp \
     src/sqlform.cpp \
+    src/sqltable.cpp \
     src/ui_widget/sqlfield.cpp \
     src/ui_widget/sqlrangefield.cpp
 
@@ -35,6 +36,7 @@ HEADERS += \
     src/jiabh/table.h \
     src/mainwindow.h \
     src/sqlform.h \
+    src/sqltable.h \
     src/ui_widget/sqlfield.h \
     src/ui_widget/sqlrangefield.h
 
