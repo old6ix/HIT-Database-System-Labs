@@ -22,7 +22,10 @@ SOURCES += \
     src/jiabh/query.cpp \
     src/jiabh/table.cpp \
     src/main.cpp \
-    src/mainwindow.cpp
+    src/mainwindow.cpp \
+    src/sqlform.cpp \
+    src/ui_widget/sqlfield.cpp \
+    src/ui_widget/sqlrangefield.cpp
 
 HEADERS += \
     src/jiabh/column.hpp \
@@ -30,7 +33,10 @@ HEADERS += \
     src/jiabh/query.h \
     src/jiabh/sql.h \
     src/jiabh/table.h \
-    src/mainwindow.h
+    src/mainwindow.h \
+    src/sqlform.h \
+    src/ui_widget/sqlfield.h \
+    src/ui_widget/sqlrangefield.h
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
