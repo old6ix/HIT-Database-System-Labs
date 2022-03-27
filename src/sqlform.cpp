@@ -57,7 +57,7 @@ void SqlForm::clickBtnSlot()
 #define CHECK_AND_QUERY(valName, colName) \
     if (valName->isChecked()) { \
         QString str = valName->getInput(); \
-        if (str.indexOf(QRegExp("[^\\\\]%|[^\\\\]_|^%|^_")) != -1) \
+        if (str.indexOf(QRegExp("[^\\\\](\\\\\\\\)*%|[^\\\\](\\\\\\\\)*_|^%|^_")) != -1) \
             q.filterBy(Jiabh::StrColumn(#colName).like(str)); \
         else \
             q.filterBy(Jiabh::StrColumn(#colName) == str); \
