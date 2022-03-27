@@ -17,6 +17,7 @@ class Query {
 }
 
 class Filter {
+    #Filter(const QString &sqlStr)
     +operator&&(): Filter
     +operator||(): Filter
     +operator!(): Filter
@@ -27,19 +28,24 @@ SQL <|-- Filter
 Table ..> Query : <<instantiate>>
 
 
-class Column {
+class Column<T> {
     -type: ColumnType
+    +Column(QString (*converter)(T))
     +getName(): QString
     +like(): Filter
     +operator...(): Filter
 }
 
-enum ColumnType {
-    ENUM_INT
-    ENUM_STR
+class IntColumn {
+    {static} -intConverter()
 }
 
-Column --> ColumnType
+class StrColumn {
+    {static} -strConverter()
+}
+
+Column <|-- IntColumn
+Column <|-- StrColumn
 Column ..> Filter : <<instantiate>>
 Query .> Filter
 
