@@ -139,9 +139,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Block.h" />
     <ClInclude Include="Record.h" />
+    <ClInclude Include="Serializable.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Block.cpp" />
     <ClCompile Include="ExternSort.cpp" />
     <ClCompile Include="Record.cpp" />
   </ItemGroup>

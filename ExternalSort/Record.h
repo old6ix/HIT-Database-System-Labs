@@ -1,16 +1,19 @@
 #pragma once
 
-#include<string>
+#include <string>
+#include "Serializable.h"
 
 /// <summary>
 /// 一条记录
 /// </summary>
-class Record
+class Record :public Serializable
 {
 private:
     static const size_t data_len = 12; // 数据字段字节数
 
 public:
+    Record() = default;
+
     /// <summary>
     /// 创建一条新记录
     /// </summary>
@@ -29,6 +32,20 @@ public:
     /// </summary>
     /// <returns>数据字段对应的字符串</returns>
     std::string getStrData() const;
+
+    /// <summary>
+    /// 从流中载入记录
+    /// </summary>
+    /// <param name="stream">输入流</param>
+    /// <returns>成功返回0，失败返回-1</returns>
+    virtual int load(std::istream& stream) override;
+
+    /// <summary>
+    /// 将记录输出至流中
+    /// </summary>
+    /// <param name="stream">输出流</param>
+    /// <returns>成功返回0，失败返回-1</returns>
+    virtual int dump(std::ostream& stream) override;
 
     Record& operator=(const Record& other);
     bool operator==(const Record& other) const;
