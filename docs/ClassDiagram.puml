@@ -37,10 +37,17 @@ class BlockDecorator
     #block: AbstractBlock
 }
 
+class SortableBlock
+{
+    +sort(): void
+}
+
 Serializable <|.. Record
 Serializable <|-- AbstractBlock
 AbstractBlock <|.. BlockDecorator
 AbstractBlock <-- BlockDecorator
+
+BlockDecorator <|-- SortableBlock
 
 Record <. AbstractBlock
 AbstractBlock <|.. Block
