@@ -36,6 +36,9 @@
     <ClCompile Include="block_test\SortableBlockTest.cpp">
       <Filter>源文件\block_test</Filter>
     </ClCompile>
+    <ClCompile Include="block_test\IterableBlockTest.cpp">
+      <Filter>源文件\block_test</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h">

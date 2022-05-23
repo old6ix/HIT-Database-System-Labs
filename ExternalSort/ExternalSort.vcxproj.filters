@@ -39,6 +39,15 @@
     <ClInclude Include="block\SortableBlock.h">
       <Filter>头文件\block</Filter>
     </ClInclude>
+    <ClInclude Include="AutoLoadBlock.h">
+      <Filter>头文件\block</Filter>
+    </ClInclude>
+    <ClInclude Include="block\IterableBlock.h">
+      <Filter>头文件\block</Filter>
+    </ClInclude>
+    <ClInclude Include="PopOnlyStack.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Record.cpp">
@@ -54,6 +63,12 @@
       <Filter>源文件\block</Filter>
     </ClCompile>
     <ClCompile Include="block\SortableBlock.cpp">
+      <Filter>源文件\block</Filter>
+    </ClCompile>
+    <ClCompile Include="AutoLoadBlock.cpp">
+      <Filter>源文件\block</Filter>
+    </ClCompile>
+    <ClCompile Include="block\IterableBlock.cpp">
       <Filter>源文件\block</Filter>
     </ClCompile>
   </ItemGroup>

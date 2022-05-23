@@ -140,16 +140,21 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="AutoLoadBlock.h" />
     <ClInclude Include="block\AbstractBlock.h" />
     <ClInclude Include="block\Block.h" />
     <ClInclude Include="block\BlockDecorator.h" />
+    <ClInclude Include="block\IterableBlock.h" />
     <ClInclude Include="block\SortableBlock.h" />
+    <ClInclude Include="PopOnlyStack.h" />
     <ClInclude Include="Record.h" />
     <ClInclude Include="Serializable.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="AutoLoadBlock.cpp" />
     <ClCompile Include="block\Block.cpp" />
     <ClCompile Include="block\BlockDecorator.cpp" />
+    <ClCompile Include="block\IterableBlock.cpp" />
     <ClCompile Include="block\SortableBlock.cpp" />
     <ClCompile Include="ExternSort.cpp" />
     <ClCompile Include="Record.cpp" />

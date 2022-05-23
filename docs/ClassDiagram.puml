@@ -42,14 +42,35 @@ class SortableBlock
     +sort(): void
 }
 
+interface PopOnlyStack<T>
+{
+    +top(): T
+    +pop(): void
+    +empty(): bool
+}
+
+class IterableBlock
+{
+    #m_top_index: size_t
+    __
+    +top(): Record
+    +pop(): void
+    +empty(): bool
+    ..
+    +count(): size_t
+}
+
 Serializable <|.. Record
 Serializable <|-- AbstractBlock
 AbstractBlock <|.. BlockDecorator
 AbstractBlock <-- BlockDecorator
 
 BlockDecorator <|-- SortableBlock
+BlockDecorator <|- IterableBlock
 
 Record <. AbstractBlock
 AbstractBlock <|.. Block
+
+PopOnlyStack <|.. IterableBlock
 
 Record -o Block
