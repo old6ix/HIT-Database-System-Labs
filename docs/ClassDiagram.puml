@@ -1,0 +1,39 @@
+interface Serializable
+{
+    +load(istream): int
+    +dump(ostream): int
+}
+
+class Record
+{
+    -key: int
+    -data: char[12]
+    +getter()
+    +operator_cmp()
+    +operator=()
+}
+
+interface AbstractBlock
+{
+    __
+    +load(istream): int
+    +dump(ostream): int
+    ..
+    +size(): int
+    +operator[](i): Record&
+}
+
+class Block
+{
+    -size: int
+    -record_array: Record[size]
+}
+
+
+Serializable <|.. Record
+Serializable <|-- AbstractBlock
+
+Record <. AbstractBlock
+AbstractBlock <|.. Block
+
+Record -o Block

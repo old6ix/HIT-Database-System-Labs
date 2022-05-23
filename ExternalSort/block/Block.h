@@ -1,12 +1,12 @@
 #pragma once
 
-#include "Serializable.h"
+#include "AbstractBlock.h"
 #include "Record.h"
 
 /// <summary>
 /// 记录块，对应一个内存块
 /// </summary>
-class Block :public Serializable
+class Block :public AbstractBlock
 {
 public:
     /// <summary>
@@ -30,8 +30,12 @@ public:
     /// <param name="stream">输出流</param>
     /// <returns>输出成功返回0，失败返回-1</returns>
     virtual int dump(std::ostream& stream) override;
+
+    virtual size_t size() override;
+
+    virtual Record& operator[](int i) override;
     
-private:
+protected:
     const size_t m_size;
     Record* m_record_array;
 };

@@ -1,6 +1,9 @@
 #include <cstring>
 #include "Record.h"
 
+Record::Record() :m_key(-1), m_data{ '\0' }
+{}
+
 Record::Record(const int key, const char data[data_len]) :m_key(key)
 {
     memcpy(m_data, data, data_len * sizeof(char));

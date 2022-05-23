@@ -12,12 +12,12 @@ Block::~Block()
 
 int Block::load(std::istream& stream)
 {
-    for (size_t i = 0; i < m_size; i++)
+    for (int i = 0; i < m_size; i++)
     {
         if (m_record_array[i].load(stream) == -1)
             return i; // EOF£¬ÖÕÖ¹
     }
-    return 0;
+    return m_size;
 }
 
 int Block::dump(std::ostream& stream)
@@ -28,4 +28,14 @@ int Block::dump(std::ostream& stream)
             return -1;
     }
     return 0;
+}
+
+size_t Block::size()
+{
+    return m_size;
+}
+
+Record& Block::operator[](int i)
+{
+    return m_record_array[i];
 }

@@ -12,7 +12,7 @@ private:
     static const size_t data_len = 12; // 数据字段字节数
 
 public:
-    Record() = default;
+    Record();
 
     /// <summary>
     /// 创建一条新记录
