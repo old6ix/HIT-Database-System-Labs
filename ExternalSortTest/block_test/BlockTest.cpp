@@ -25,13 +25,29 @@ namespace ExternalSortTest
             Record r1= { 1, "data1" },
                 r2= { 2, "data2" };
 
-            Block b = { 2 };
+            Block b = { 10 };
+
+            Assert::AreEqual((size_t)10, b.size());
+
+            // 测试和设置内存块的有效记录个数
+            Assert::AreEqual(-1, b.setCount(11));
+            Assert::AreEqual((size_t)0, b.count());
+            Assert::AreEqual(0, b.setCount(2));
+            Assert::AreEqual((size_t)2, b.count());
+
+            // 设置记录值用于后续测试
             b[0] = r1;
             b[1] = r2;
 
+            // 测试是否有表示暴露
             Assert::IsFalse(&b[0] == &r1);
             Assert::IsFalse(&b[1] == &r2);
 
+            // 测试块内记录个数和块大小是否正确
+            Assert::AreEqual((size_t)2, b.count());
+            Assert::AreEqual((size_t)10, b.size());
+
+            // 测试块内数据是否正确
             Assert::AreEqual(r1.getKey(), b[0].getKey());
             Assert::AreEqual(0, r2.getStrData().compare(b[1].getStrData()));
         }
@@ -43,7 +59,7 @@ namespace ExternalSortTest
             std::istringstream input(dumped);
 
             // Begin test
-            Block b = { 2 };
+            Block b = { 5 };
             AbstractBlock &ab = b;
 
             Assert::AreEqual(2, ab.load(input));
@@ -55,6 +71,7 @@ namespace ExternalSortTest
         {
             Block b = { 2 };
             AbstractBlock& ab = b;
+            ab.setCount(2);
             ab[0] = { 1, "Hello world!" };
             ab[1] = { 2, "abcd" };
 

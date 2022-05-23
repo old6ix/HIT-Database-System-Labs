@@ -19,13 +19,16 @@ interface AbstractBlock
     +load(istream): int
     +dump(ostream): int
     ..
-    +size(): int
+    +count(): size_t
+    +setCount(num): size_t
+    +size(): size_t
     +operator[](i): Record&
 }
 
 class Block
 {
-    -size: int
+    -cnt: size_t
+    -size: size_t
     -record_array: Record[size]
 }
 

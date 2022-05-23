@@ -31,12 +31,17 @@ public:
     /// <returns>输出成功返回0，失败返回-1</returns>
     virtual int dump(std::ostream& stream) override;
 
+    virtual size_t count() override;
+
+    virtual int setCount(size_t num) override;
+
     virtual size_t size() override;
 
     virtual Record& operator[](int i) override;
     
-protected:
-    const size_t m_size;
-    Record* m_record_array;
+private:
+    size_t m_cnt; // 块中记录个数
+    const size_t m_size; // 块总大小
+    Record* m_record_array; // 块中各条记录
 };
 

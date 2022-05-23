@@ -26,8 +26,17 @@ namespace ExternalSortTest
             Record r1 = { 1, "data1" },
                 r2 = { 2, "data2" };
 
-            Block b = { 2 };
+            Block b = { 5 };
             BlockDecorator bd = { b };
+
+            Assert::AreEqual((size_t)5, bd.size());
+
+            // 测试和设置内存块的有效记录个数
+            Assert::AreEqual(-1, bd.setCount(11));
+            Assert::AreEqual((size_t)0, bd.count());
+            Assert::AreEqual(0, bd.setCount(2));
+            Assert::AreEqual((size_t)2, bd.count());
+
             bd[0] = r1;
             bd[1] = r2;
 
@@ -59,6 +68,7 @@ namespace ExternalSortTest
             Block b = { 2 };
             BlockDecorator bd = { b };
             AbstractBlock& ab = bd;
+            ab.setCount(2);
             ab[0] = { 1, "Hello world!" };
             ab[1] = { 2, "abcd" };
 

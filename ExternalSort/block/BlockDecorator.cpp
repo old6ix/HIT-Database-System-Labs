@@ -13,6 +13,16 @@ int BlockDecorator::dump(std::ostream& stream)
     return m_block.dump(stream);
 }
 
+size_t BlockDecorator::count()
+{
+    return m_block.count();
+}
+
+int BlockDecorator::setCount(size_t num)
+{
+    return m_block.setCount(num);
+}
+
 size_t BlockDecorator::size()
 {
     return m_block.size();

@@ -21,6 +21,18 @@ public:
     virtual int dump(std::ostream& stream) override = 0;
 
     /// <summary>
+    /// 获取块中记录个数
+    /// </summary>
+    /// <returns>记录个数</returns>
+    virtual size_t count() = 0;
+
+    /// <summary>
+    /// 设置块中有效记录个数
+    /// </summary>
+    /// <returns>成功返回0，失败返回-1</returns>
+    virtual int setCount(size_t num) = 0;
+
+    /// <summary>
     /// 获取块的可容纳记录个数
     /// </summary>
     /// <returns>可容纳记录个数</returns>

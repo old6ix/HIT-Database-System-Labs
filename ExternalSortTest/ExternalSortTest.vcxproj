@@ -159,6 +159,7 @@
   <ItemGroup>
     <ClCompile Include="block_test\BlockDecoratorTest.cpp" />
     <ClCompile Include="block_test\BlockTest.cpp" />
+    <ClCompile Include="block_test\SortableBlockTest.cpp" />
     <ClCompile Include="ExternalSortTest.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
