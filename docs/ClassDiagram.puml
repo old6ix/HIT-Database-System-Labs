@@ -71,6 +71,20 @@ note bottom of BlockStream
     内存块的IterableBlock
 endnote
 
+class LoserTree
+{
+    -k: int
+    -tree: int
+    -ib_array: IterableBlock[k]
+    __
+    +top(): Record
+    +pop(): void
+    +empty(): bool
+    ..
+    -build()
+    -adjust(index)
+}
+
 Serializable <|.. Record
 Serializable <|-- AbstractBlock
 AbstractBlock <|.. BlockDecorator
@@ -84,5 +98,7 @@ Record <. AbstractBlock
 AbstractBlock <|.. Block
 
 PopOnlyStack <|.. IterableBlock
+PopOnlyStack <|.. LoserTree
 
 Record -o Block
+LoserTree o-- IterableBlock

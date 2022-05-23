@@ -48,6 +48,9 @@
     <ClInclude Include="block\BlockStream.h">
       <Filter>头文件\block</Filter>
     </ClInclude>
+    <ClInclude Include="LoserTree.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Record.cpp">
@@ -70,6 +73,9 @@
     </ClCompile>
     <ClCompile Include="block\BlockStream.cpp">
       <Filter>源文件\block</Filter>
+    </ClCompile>
+    <ClCompile Include="LoserTree.cpp">
+      <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

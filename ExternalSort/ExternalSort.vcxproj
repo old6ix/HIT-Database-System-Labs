@@ -146,6 +146,7 @@
     <ClInclude Include="block\BlockStream.h" />
     <ClInclude Include="block\IterableBlock.h" />
     <ClInclude Include="block\SortableBlock.h" />
+    <ClInclude Include="LoserTree.h" />
     <ClInclude Include="PopOnlyStack.h" />
     <ClInclude Include="Record.h" />
     <ClInclude Include="Serializable.h" />
@@ -157,6 +158,7 @@
     <ClCompile Include="block\IterableBlock.cpp" />
     <ClCompile Include="block\SortableBlock.cpp" />
     <ClCompile Include="ExternSort.cpp" />
+    <ClCompile Include="LoserTree.cpp" />
     <ClCompile Include="Record.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

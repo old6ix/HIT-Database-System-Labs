@@ -42,6 +42,9 @@
     <ClCompile Include="block_test\BlockStreamTest.cpp">
       <Filter>源文件\block_test</Filter>
     </ClCompile>
+    <ClCompile Include="LoserTreeTest.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h">
