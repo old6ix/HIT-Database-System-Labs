@@ -29,9 +29,15 @@ class Block
     -record_array: Record[size]
 }
 
+class BlockDecorator
+{
+    #block: AbstractBlock
+}
 
 Serializable <|.. Record
 Serializable <|-- AbstractBlock
+AbstractBlock <|.. BlockDecorator
+AbstractBlock <-- BlockDecorator
 
 Record <. AbstractBlock
 AbstractBlock <|.. Block

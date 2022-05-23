@@ -33,6 +33,9 @@
     <ClInclude Include="block\AbstractBlock.h">
       <Filter>头文件\block</Filter>
     </ClInclude>
+    <ClInclude Include="block\BlockDecorator.h">
+      <Filter>头文件\block</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Record.cpp">
@@ -42,6 +45,9 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="block\Block.cpp">
+      <Filter>源文件\block</Filter>
+    </ClCompile>
+    <ClCompile Include="block\BlockDecorator.cpp">
       <Filter>源文件\block</Filter>
     </ClCompile>
   </ItemGroup>

@@ -142,11 +142,13 @@
   <ItemGroup>
     <ClInclude Include="block\AbstractBlock.h" />
     <ClInclude Include="block\Block.h" />
+    <ClInclude Include="block\BlockDecorator.h" />
     <ClInclude Include="Record.h" />
     <ClInclude Include="Serializable.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="block\Block.cpp" />
+    <ClCompile Include="block\BlockDecorator.cpp" />
     <ClCompile Include="ExternSort.cpp" />
     <ClCompile Include="Record.cpp" />
   </ItemGroup>

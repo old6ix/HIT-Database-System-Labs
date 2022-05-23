@@ -157,6 +157,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="block_test\BlockDecoratorTest.cpp" />
     <ClCompile Include="block_test\BlockTest.cpp" />
     <ClCompile Include="ExternalSortTest.cpp" />
     <ClCompile Include="pch.cpp">

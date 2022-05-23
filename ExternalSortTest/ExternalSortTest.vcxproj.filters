@@ -30,6 +30,9 @@
     <ClCompile Include="block_test\BlockTest.cpp">
       <Filter>源文件\block_test</Filter>
     </ClCompile>
+    <ClCompile Include="block_test\BlockDecoratorTest.cpp">
+      <Filter>源文件\block_test</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h">
