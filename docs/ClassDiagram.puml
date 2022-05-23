@@ -60,6 +60,17 @@ class IterableBlock
     +count(): size_t
 }
 
+class BlockStream
+{
+    -in: istream&
+    __
+    +pop(): void
+}
+note bottom of BlockStream
+    可以从流中自动载入
+    内存块的IterableBlock
+endnote
+
 Serializable <|.. Record
 Serializable <|-- AbstractBlock
 AbstractBlock <|.. BlockDecorator
@@ -67,6 +78,7 @@ AbstractBlock <-- BlockDecorator
 
 BlockDecorator <|-- SortableBlock
 BlockDecorator <|- IterableBlock
+IterableBlock <|- BlockStream
 
 Record <. AbstractBlock
 AbstractBlock <|.. Block

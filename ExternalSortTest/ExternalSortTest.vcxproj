@@ -158,6 +158,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="block_test\BlockDecoratorTest.cpp" />
+    <ClCompile Include="block_test\BlockStreamTest.cpp" />
     <ClCompile Include="block_test\BlockTest.cpp" />
     <ClCompile Include="block_test\IterableBlockTest.cpp" />
     <ClCompile Include="block_test\SortableBlockTest.cpp" />
