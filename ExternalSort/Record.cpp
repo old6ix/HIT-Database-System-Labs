@@ -27,21 +27,14 @@ std::string Record::getStrData() const
 int Record::load(std::istream& stream)
 {
     // 读取索引字段
-    char* key_ptr = (char*)&m_key; // 用于逐位读取int
-    for (size_t i = 0; i < sizeof(int); i++)
-    {
-        if (!stream.good())
-            return -1;
-        *(key_ptr + i) = stream.get();
-    }
+    if (!stream.good())
+        return -1;
+    stream.read((char*)&m_key, sizeof(int));
 
     // 读取数据字段
-    for (size_t i = 0; i < data_len; i++)
-    {
-        if (!stream.good())
-            return -1;
-        *(m_data + i) = stream.get();
-    }
+    if (!stream.good())
+        return -1;
+    stream.read(m_data, this->data_len);
 
     return 0;
 }
@@ -49,21 +42,14 @@ int Record::load(std::istream& stream)
 int Record::dump(std::ostream& stream)
 {
     // 输出索引字段
-    char* key_ptr = (char*)&m_key;
-    for (size_t i = 0; i < sizeof(int); i++)
-    {
-        if (!stream.good())
-            return -1;
-        stream.put(*(key_ptr + i));
-    }
+    if (!stream.good())
+        return -1;
+    stream.write((char*)&m_key, sizeof(int));
 
     // 输出数据字段
-    for (size_t i = 0; i < data_len; i++)
-    {
-        if (!stream.good())
-            return -1;
-        stream.put(*(m_data + i));
-    }
+    if (!stream.good())
+        return -1;
+    stream.write(m_data, this->data_len);
 
     return 0;
 }
@@ -71,7 +57,7 @@ int Record::dump(std::ostream& stream)
 Record& Record::operator=(const Record& other)
 {
     m_key = other.m_key;
-    memcpy(m_data, other.m_data, data_len * sizeof(char));
+    memcpy(m_data, other.m_data, data_len);
     return *this;
 }
 
