@@ -7,7 +7,7 @@ SortableBlock::SortableBlock(AbstractBlock& block)
 
 void SortableBlock::sort()
 {
-    this->qsort(0, this->count());
+    this->qsort(0, this->count() - 1);
 }
 
 void SortableBlock::qsort(size_t begin, size_t end)
