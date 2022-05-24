@@ -1,8 +1,12 @@
+#include <cstring>
 #include "LoserTree.h"
 
-LoserTree::LoserTree(int k, IterableBlock ib_array[])
-    :m_k(k), m_ib_array(ib_array), m_WIN(-1)
+LoserTree::LoserTree(int k, IterableBlock* ib_array[])
+    :m_k(k), m_WIN(-1)
 {
+    m_ib_array = new IterableBlock * [k];
+    memcpy(m_ib_array, ib_array, k * sizeof(IterableBlock*));
+
     m_tree = new int[m_k + 1];
 
     this->build();
@@ -10,19 +14,20 @@ LoserTree::LoserTree(int k, IterableBlock ib_array[])
 
 LoserTree::~LoserTree()
 {
+    delete[] m_ib_array;
     delete[] m_tree;
 }
 
 Record LoserTree::top()
 {
-    IterableBlock& b = m_ib_array[m_tree[0]]; // 树顶元素所在归并段
-    return b.top();
+    IterableBlock* b = m_ib_array[m_tree[0]]; // 树顶元素所在归并段
+    return b->top();
 }
 
 void LoserTree::pop()
 {
     int popping = m_tree[0]; // 待弹出的归并段下标
-    this->m_ib_array[popping].pop();
+    m_ib_array[popping]->pop();
     this->adjust(popping);
 }
 
@@ -31,7 +36,7 @@ bool LoserTree::empty()
     // 若所有内存块都空，就说明树空了
     bool all_empty = true;
     for (size_t i = 0; i < m_k; i++)
-        all_empty &= m_ib_array[i].empty();
+        all_empty &= m_ib_array[i]->empty();
     return all_empty;
 }
 
@@ -62,12 +67,12 @@ void LoserTree::adjust(int b_index)
         // 判断是否必赢
         bool winned = b_index == m_WIN; // 攻擂者为绝对赢者则必赢
         if (m_tree[t] != m_WIN)
-            winned |= m_ib_array[m_tree[t]].empty(); // 守擂者为空则必赢
+            winned |= m_ib_array[m_tree[t]]->empty(); // 守擂者为空则必赢
 
         // 判断是否必输
         bool losed = m_tree[t] == m_WIN; // 守擂者为绝对赢者则必输
         if (b_index != m_WIN)
-            losed |= m_ib_array[b_index].empty(); // 不用比较，已经输了
+            losed |= m_ib_array[b_index]->empty(); // 不用比较，已经输了
 
         if (!winned)
         {
@@ -77,8 +82,8 @@ void LoserTree::adjust(int b_index)
             }
             else
             {
-                const Record& curr = m_ib_array[b_index].top();
-                const Record& father = m_ib_array[m_tree[t]].top();
+                const Record& curr = m_ib_array[b_index]->top();
+                const Record& father = m_ib_array[m_tree[t]]->top();
                 if (curr >= father) // 当前节点输了，留在原地（t处），更新b_index
                 {
                     std::swap(m_tree[t], b_index);

@@ -12,7 +12,7 @@ public:
     /// </summary>
     /// <param name="k">归并段数</param>
     /// <param name="ib_array">各归并段组成的数组</param>
-    LoserTree(int k, IterableBlock ib_array[]);
+    LoserTree(int k, IterableBlock* ib_array[]);
 
     ~LoserTree();
 
@@ -49,7 +49,7 @@ private:
     /// <summary>
     /// 各归并段
     /// </summary>
-    IterableBlock* m_ib_array;
+    IterableBlock** m_ib_array;
 
     /// <summary>
     /// 绝对赢的归并段

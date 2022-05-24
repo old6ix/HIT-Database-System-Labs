@@ -75,7 +75,7 @@ class LoserTree
 {
     -k: int
     -tree: int
-    -ib_array: IterableBlock[k]
+    -ib_array: IterableBlock* [k]
     __
     +top(): Record
     +pop(): void

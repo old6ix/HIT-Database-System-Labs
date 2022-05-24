@@ -30,10 +30,9 @@ namespace ExternalSortTest
             for (size_t i = 0; i < K; i++)
                 a1.construct(b_array + i, N);
 
-            std::allocator<IterableBlock> a2;
-            IterableBlock* ib_array = a2.allocate(K);
+            IterableBlock* ib_array[K];
             for (size_t i = 0; i < K; i++)
-                a2.construct(ib_array + i, b_array[i]);
+                ib_array[i] = new IterableBlock{ b_array[i] };
 
 
             // 初始化各内存块中的数据
@@ -61,8 +60,7 @@ namespace ExternalSortTest
 
             // 释放各内存块
             for (size_t i = 0; i < K; i++)
-                a2.destroy(ib_array + i);
-            a2.deallocate(ib_array, K);
+                delete ib_array[i];
             for (size_t i = 0; i < K; i++)
                 a1.destroy(b_array + i);
             a1.deallocate(b_array, K);
